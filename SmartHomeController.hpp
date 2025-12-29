@@ -5,7 +5,6 @@
 #include <vector>
 #include <algorithm>
 #include "SmartDevice.hpp"
-// Diğer include'lar main'de gerekli olacak, burada zorunlu değil ama kalabilir.
 #include "Light.hpp"
 #include "Fan.hpp"
 #include "Thermostat.hpp"

@@ -1,5 +1,5 @@
 #include <iostream>
-#include <limits> // Required for input validation
+#include <limits> 
 #include "SmartHomeController.hpp"
 #include "Light.hpp"
 #include "Fan.hpp"
@@ -7,7 +7,7 @@
 
 using namespace std;
 
-// Helper function to display the menu
+
 void printMenu() {
     cout << "\n===================================" << endl;
     cout << "    SMART HOME CONTROL SYSTEM" << endl;
@@ -24,16 +24,15 @@ int main() {
     SmartHomeController controller;
     int choice;
 
-    // Adding initial devices for testing purposes
     controller.addDevice(new Light(false, "LivingRoom_Light", 0));
     controller.addDevice(new Thermostat(true, "Main_Thermostat", 24.0));
 
     while (true) {
         printMenu();
 
-        // Input validation: Check if user entered a non-integer
+
         if (!(cin >> choice)) {
-            cin.clear(); // Clear error flag
+            cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
             cout << "ERROR: Please enter a valid number!" << endl;
             continue;
@@ -45,7 +44,7 @@ int main() {
         }
 
         switch (choice) {
-            case 1: { // Add Device
+            case 1: {
                 int type;
                 string name;
                 cout << "\n[SELECT TYPE] -> 1: Light | 2: Fan | 3: Thermostat" << endl;
@@ -66,7 +65,7 @@ int main() {
                 cout << "-> Device added successfully." << endl;
                 break;
             }
-            case 2: { // Remove Device
+            case 2: {
                 int id;
                 controller.showAllStatuses(); // Show list first so user knows the ID
                 cout << "\nEnter the ID of the device to remove: ";
@@ -75,7 +74,7 @@ int main() {
                 cout << "-> Process completed (Device removed if ID was correct)." << endl;
                 break;
             }
-            case 3: { // Toggle Device
+            case 3: {
                 int id;
                 controller.showAllStatuses();
                 cout << "\nEnter the ID of the device to toggle: ";
@@ -84,7 +83,7 @@ int main() {
                 cout << "-> Device state toggled." << endl;
                 break;
             }
-            case 4: // List Devices
+            case 4:
                 controller.showAllStatuses();
                 break;
             default:

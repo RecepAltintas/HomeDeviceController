@@ -48,7 +48,7 @@ public:
     }
 
     void showAllStatuses() const {
-        std::cout << "\n--- Ev Durumu ---" << std::endl;
+        std::cout << "\n--- Home ---" << std::endl;
         for (const auto& device : devices) {
             device->showStatus();
         }
